@@ -1,0 +1,35 @@
+# src/VoteCerto/WebBundle/Resources/config/doctrine/Deputy.mongodb.yml
+VoteCerto\WebBundle\Document\Deputy:
+    fields:
+        id:
+            id: true
+        idDeputy:
+            type: int
+        condition:
+            type: string
+        registration:
+            type: int
+        name:
+            type: string
+        fantasyName:
+            type: string
+        photo:
+            type: string
+        sex:
+            type: string
+        state:
+            type: string
+        filiation:
+            type: string
+        cabinet:
+            type: string
+        attachment:
+            type: string
+        phone:
+            type: string
+        email:
+            type: string
+        localizer:
+            type: int
+        committees:
+            type: collection

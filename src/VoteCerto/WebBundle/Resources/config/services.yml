@@ -1,4 +1,4 @@
 services:
     deputies_webservice_manager:
-        class:  VoteCerto\WebBundle\Services\DeputiesWebserviceManager
+        class:  VoteCerto\WebBundle\Services\WebserviceManager
         arguments: [ "@service_container", '%camara_webservice%' ]

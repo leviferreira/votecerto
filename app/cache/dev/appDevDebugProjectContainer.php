@@ -558,11 +558,11 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return VoteCerto\WebBundle\Services\DeputiesWebserviceManager A VoteCerto\WebBundle\Services\DeputiesWebserviceManager instance.
+     * @return VoteCerto\WebBundle\Services\WebserviceManager A VoteCerto\WebBundle\Services\WebserviceManager instance.
      */
     protected function getDeputiesWebserviceManagerService()
     {
-        return $this->services['deputies_webservice_manager'] = new \VoteCerto\WebBundle\Services\DeputiesWebserviceManager($this, 'http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados');
+        return $this->services['deputies_webservice_manager'] = new \VoteCerto\WebBundle\Services\WebserviceManager($this, 'http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados');
     }
 
     /**
@@ -732,14 +732,20 @@ class appDevDebugProjectContainer extends Container
         $a = new \Doctrine\Common\Cache\ArrayCache();
         $a->setNamespace('sf2mongodb_default_49364c957c1d65fa3d603dc06f0f21b2e33f265edbe8f25222040b66f7d2fa28');
 
-        $b = new \Doctrine\Bundle\MongoDBBundle\Logger\Logger($this->get('monolog.logger.doctrine', ContainerInterface::NULL_ON_INVALID_REFERENCE));
-        $b->setBatchInsertThreshold(4);
+        $b = new \Doctrine\Bundle\MongoDBBundle\Mapping\Driver\YamlDriver(array('/var/www/src/VoteCerto/WebBundle/Resources/config/doctrine' => 'VoteCerto\\WebBundle\\Document'));
+        $b->setGlobalBasename('mapping');
+
+        $c = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
+        $c->addDriver($b, 'VoteCerto\\WebBundle\\Document');
+
+        $d = new \Doctrine\Bundle\MongoDBBundle\Logger\Logger($this->get('monolog.logger.doctrine', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        $d->setBatchInsertThreshold(4);
 
         $this->services['doctrine_mongodb.odm.default_configuration'] = $instance = new \Doctrine\ODM\MongoDB\Configuration();
 
-        $instance->setDocumentNamespaces(array());
+        $instance->setDocumentNamespaces(array('WebBundle' => 'VoteCerto\\WebBundle\\Document'));
         $instance->setMetadataCacheImpl($a);
-        $instance->setMetadataDriverImpl(new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain());
+        $instance->setMetadataDriverImpl($c);
         $instance->setProxyDir('/var/www/app/cache/dev/doctrine/odm/mongodb/Proxies');
         $instance->setProxyNamespace('MongoDBODMProxies');
         $instance->setAutoGenerateProxyClasses(false);
@@ -750,7 +756,7 @@ class appDevDebugProjectContainer extends Container
         $instance->setDefaultCommitOptions(array());
         $instance->setRetryConnect(0);
         $instance->setRetryQuery(0);
-        $instance->setLoggerCallable(array(0 => new \Doctrine\Bundle\MongoDBBundle\Logger\AggregateLogger(array(0 => $b, 1 => $this->get('doctrine_mongodb.odm.data_collector.pretty'))), 1 => 'logQuery'));
+        $instance->setLoggerCallable(array(0 => new \Doctrine\Bundle\MongoDBBundle\Logger\AggregateLogger(array(0 => $d, 1 => $this->get('doctrine_mongodb.odm.data_collector.pretty'))), 1 => 'logQuery'));
 
         return $instance;
     }

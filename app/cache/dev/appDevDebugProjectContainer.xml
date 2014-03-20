@@ -2472,7 +2472,7 @@
       <argument type="service" id="security.authentication.trust_resolver" on-invalid="null"/>
       <argument type="service" id="security.role_hierarchy" on-invalid="null"/>
     </service>
-    <service id="deputies_webservice_manager" class="VoteCerto\WebBundle\Services\DeputiesWebserviceManager">
+    <service id="deputies_webservice_manager" class="VoteCerto\WebBundle\Services\WebserviceManager">
       <argument type="service" id="service_container"/>
       <argument>http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados</argument>
     </service>
@@ -2533,7 +2533,9 @@
     </service>
     <service id="doctrine_mongodb.odm.default_configuration" class="Doctrine\ODM\MongoDB\Configuration">
       <call method="setDocumentNamespaces">
-        <argument type="collection"/>
+        <argument type="collection">
+          <argument key="WebBundle">VoteCerto\WebBundle\Document</argument>
+        </argument>
       </call>
       <call method="setMetadataCacheImpl">
         <argument type="service">
@@ -2546,7 +2548,21 @@
       </call>
       <call method="setMetadataDriverImpl">
         <argument type="service">
-          <service class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false"/>
+          <service class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
+            <call method="addDriver">
+              <argument type="service">
+                <service class="Doctrine\Bundle\MongoDBBundle\Mapping\Driver\YamlDriver" public="false">
+                  <argument type="collection">
+                    <argument key="/var/www/src/VoteCerto/WebBundle/Resources/config/doctrine">VoteCerto\WebBundle\Document</argument>
+                  </argument>
+                  <call method="setGlobalBasename">
+                    <argument>mapping</argument>
+                  </call>
+                </service>
+              </argument>
+              <argument>VoteCerto\WebBundle\Document</argument>
+            </call>
+          </service>
         </argument>
       </call>
       <call method="setProxyDir">

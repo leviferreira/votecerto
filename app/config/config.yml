@@ -77,4 +77,5 @@ doctrine_mongodb:
     default_database: vote_certo
     document_managers:
         default:
-            auto_mapping: true
+            mappings:
+                WebBundle: yml
