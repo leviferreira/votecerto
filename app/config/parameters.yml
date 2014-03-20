@@ -12,3 +12,5 @@ parameters:
     mailer_password: null
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
+    database_mongo: "mongodb://localhost:27017"
+    camara_webservice: "http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados"

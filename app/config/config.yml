@@ -67,3 +67,14 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+
+doctrine_mongodb:
+    connections:
+        default:
+            server: %database_mongo%
+            options: {}
+    default_database: vote_certo
+    document_managers:
+        default:
+            auto_mapping: true
