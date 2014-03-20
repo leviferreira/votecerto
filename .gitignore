@@ -2,5 +2,5 @@
 .vagrant*
 vendor*
 bin*
-app/cache/*
+app/cache*
 app/logs/*
