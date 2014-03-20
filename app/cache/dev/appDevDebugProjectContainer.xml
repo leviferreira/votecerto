@@ -37,7 +37,13 @@
     <parameter key="locale">en</parameter>
     <parameter key="secret">ThisTokenIsNotSoSecretChangeIt</parameter>
     <parameter key="database_mongo">mongodb://localhost:27017</parameter>
-    <parameter key="camara_webservice">http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados</parameter>
+    <parameter key="available_webservices" type="collection">
+      <parameter type="collection">
+        <parameter key="name">CamaraFederal</parameter>
+        <parameter key="url">http://www.camara.gov.br/SitCamaraWS/Deputados.asmx</parameter>
+        <parameter key="class">VoteCerto\WebBundle\Organizations\CamaraFederal</parameter>
+      </parameter>
+    </parameter>
     <parameter key="controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver</parameter>
     <parameter key="controller_name_converter.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser</parameter>
     <parameter key="response_listener.class">Symfony\Component\HttpKernel\EventListener\ResponseListener</parameter>
@@ -2474,7 +2480,13 @@
     </service>
     <service id="deputies_webservice_manager" class="VoteCerto\WebBundle\Services\WebserviceManager">
       <argument type="service" id="service_container"/>
-      <argument>http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados</argument>
+      <argument type="collection">
+        <argument type="collection">
+          <argument key="name">CamaraFederal</argument>
+          <argument key="url">http://www.camara.gov.br/SitCamaraWS/Deputados.asmx</argument>
+          <argument key="class">VoteCerto\WebBundle\Organizations\CamaraFederal</argument>
+        </argument>
+      </argument>
     </service>
     <service id="form.type.mongodb_document" class="Doctrine\Bundle\MongoDBBundle\Form\Type\DocumentType">
       <tag name="form.type" alias="document"/>

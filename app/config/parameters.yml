@@ -13,4 +13,8 @@ parameters:
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
     database_mongo: "mongodb://localhost:27017"
-    camara_webservice: "http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados"
+    available_webservices:
+        -
+            name: 'CamaraFederal'
+            url: 'http://www.camara.gov.br/SitCamaraWS/Deputados.asmx'
+            class: 'VoteCerto\WebBundle\Organizations\CamaraFederal'

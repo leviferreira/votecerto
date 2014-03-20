@@ -562,7 +562,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getDeputiesWebserviceManagerService()
     {
-        return $this->services['deputies_webservice_manager'] = new \VoteCerto\WebBundle\Services\WebserviceManager($this, 'http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados');
+        return $this->services['deputies_webservice_manager'] = new \VoteCerto\WebBundle\Services\WebserviceManager($this, array(0 => array('name' => 'CamaraFederal', 'url' => 'http://www.camara.gov.br/SitCamaraWS/Deputados.asmx', 'class' => 'VoteCerto\\WebBundle\\Organizations\\CamaraFederal')));
     }
 
     /**
@@ -3705,7 +3705,13 @@ class appDevDebugProjectContainer extends Container
             'locale' => 'en',
             'secret' => 'ThisTokenIsNotSoSecretChangeIt',
             'database_mongo' => 'mongodb://localhost:27017',
-            'camara_webservice' => 'http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados',
+            'available_webservices' => array(
+                0 => array(
+                    'name' => 'CamaraFederal',
+                    'url' => 'http://www.camara.gov.br/SitCamaraWS/Deputados.asmx',
+                    'class' => 'VoteCerto\\WebBundle\\Organizations\\CamaraFederal',
+                ),
+            ),
             'controller_resolver.class' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\ControllerResolver',
             'controller_name_converter.class' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\ControllerNameParser',
             'response_listener.class' => 'Symfony\\Component\\HttpKernel\\EventListener\\ResponseListener',
