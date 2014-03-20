@@ -8,5 +8,6 @@ class DeputiesWebserviceManagerTest extends WebTestCase
     public function testIndex()
     {
 
+        
     }
 }
