@@ -19,6 +19,8 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return new Response();
+        $parliamentarians = [];
+
+        return $this->render("WebBundle:Default:index.html.twig");
     }
 }

@@ -1,0 +1,102 @@
+---
+vagrantfile-local:
+    vm:
+        box: ubuntu-precise12042-x64-vbox43
+        box_url: 'http://box.puphpet.com/ubuntu-precise12042-x64-vbox43.box'
+        hostname: null
+        network:
+            private_network: 33.33.33.97
+            forwarded_port:
+                7o6MyniI6v9g:
+                    host: '8080'
+                    guest: '80'
+        provider:
+            virtualbox:
+                modifyvm:
+                    name: votecerto-ubuntu
+                    natdnshostresolver1: on
+                    memory: '512'
+                setextradata:
+                    VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root: 1
+        provision:
+            puppet:
+                manifests_path: puppet/manifests
+                options:
+                    - --verbose
+                    - '--hiera_config /vagrant/hiera.yaml'
+                    - '--parser future'
+        synced_folder:
+            6M8E38BoPr9K:
+                id: vagrant-root
+                source: .
+                target: /var/www
+                nfs: 'true'
+        usable_port_range: 2200..2250
+    ssh:
+        host: null
+        port: null
+        private_key_path: null
+        username: vagrant
+        guest_port: null
+        keep_alive: true
+        forward_agent: false
+        forward_x11: false
+        shell: 'bash -l'
+    vagrant:
+        host: ':detect'
+server:
+    packages:
+        - php5-curl
+        - libpcre3-dev
+        - git
+        - gitk
+        - curl
+        - gem
+        - php5-memcache
+        - php5-memcached
+        - openjdk-7-jre
+        - php5-gd
+    dot_files:
+        -
+            bash_aliases: null
+    _prevent_empty: ''
+
+nginx:
+    vhosts:
+        eWmhOFEUsusf:
+            server_name: votecerto.dev
+            server_aliases:
+                - www.votecerto.dev
+            www_root: /var/www/web
+            listen_port: '80'
+            index_files:
+                - index.html
+                - index.htm
+                - app_dev.php
+            envvars:
+                - 'APP_ENV dev'
+                - 'SYMFONY_ENV dev'
+
+php:
+    version: '55'
+    composer: '1'
+    modules:
+        php:
+            - cli
+            - intl
+            - mcrypt
+        pear:
+            - PHP_CodeSniffer
+        pecl:
+            - pecl_http
+            - mongo
+    ini:
+        display_errors: On
+        error_reporting: '-1'
+        session.save_path: /var/lib/php/session
+        realpath_cache_size: '4096k'
+        realpath_cache_ttl: '7200'
+        memory_limit: '1024M'
+
+    timezone: America/Sao_Paulo
+

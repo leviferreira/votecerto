@@ -232,29 +232,25 @@
         <script src="/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script>
-            $("#btnVoteLike").on("click", function( event ){
-
+            $("#btnVoteLike").on("click", function(event) {
                 event.preventDefault();
                 $("#btnVoteLike").prop("disabled", true);
-                $("#btnVoteDislike").attr("disabled", "disabled");
-                $("#commentFields").attr("disabled", "disabled");
+                $("#btnVoteDislike").prop("disabled", true);
+                $("#commentFields").prop("disabled", true);
             });
 
-            $("#btnVoteDislike").on("click", function(){
-
+            $("#btnVoteDislike").on("click", function(event) {
                 event.preventDefault();
 
-                if ( $("#commentFields").val().length < 1 ){
+                if ( $("#commentFields").val().length < 1 )
+                {
                     alert("É obrigatório dizer porque não votaria neste político.");
                     return false;
                 }
 
-                $("#btnVoteLike").attr("disabled", "disabled");
-                $("#btnVoteDislike").attr("disabled", "disabled");
-                $("#commentFields").attr("disabled", "disabled");
-
-
-
+                $("#btnVoteLike").prop("disabled", true);
+                $("#btnVoteDislike").prop("disabled", true);
+                $("#commentFields").prop("disabled", true);
             });
         </script>
     </body>
