@@ -1,0 +1,59 @@
+<?php
+namespace VoteCerto\WebBundle\Services;
+
+use Symfony\Component\DependencyInjection\Container;
+use VoteCerto\WebBundle\Document\Deputy;
+use VoteCerto\WebBundle\Organizations\Adapter\OrganizationAdapter;
+
+class WebserviceManager
+{
+    /**
+     * Symfony dependency injection container
+     * @var \Symfony\Component\DependencyInjection\Container
+     */
+    protected $container;
+
+    /**
+     * Available
+     * @var string
+     */
+    protected $availableWebServices;
+
+    public function __construct(Container $container, $availableWebServices)
+    {
+        $this->availableWebServices = $availableWebServices;
+        $this->container = $container;
+    }
+
+    /**
+     * Update the deputies at mongodb
+     */
+    public function updateDeputies()
+    {
+        $dm = $this->container->get('doctrine_mongodb')->getManager();
+
+        foreach ($this->availableWebServices as $webservice) {
+            $organization = new OrganizationAdapter($webservice['class'], $webservice['url']);
+
+            foreach ($organization->getDeputies() as $document) {
+                $found = $dm->getRepository('WebBundle:Deputy')->findOneByName($document->getName());
+
+                if(!$found) {
+                    $dm->persist($document);
+                } else {
+                    $document->setId($found->getId());
+                    $dm->merge($document);
+                }
+
+                $dm->flush();
+                echo ".";
+            }
+            echo ".";
+        }
+        echo "\n";
+    }
+
+
+
+
+}

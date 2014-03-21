@@ -4,6 +4,12 @@ namespace VoteCerto\WebBundle\Organizations;
 use VoteCerto\WebBundle\Document\Deputy;
 use VoteCerto\WebBundle\Organizations\Interfaces\OrganizationInterface;
 
+/**
+ * Class CamaraFederal
+ * This class implements an Organization Interface it represents the
+ * webservice of 'Camara Federal do Brasil'
+ * @package VoteCerto\WebBundle\Organizations
+ */
 class CamaraFederal implements OrganizationInterface
 {
     protected $webServiceUrl;
@@ -68,6 +74,7 @@ class CamaraFederal implements OrganizationInterface
     }
 
     /**
+     * Get committees from both, first and second deputy
      * @param $committeesFirst
      * @param $committeesSecond
      */
@@ -87,6 +94,7 @@ class CamaraFederal implements OrganizationInterface
     }
 
     /**
+     * Convert the xml attributes to array ones
      * @param \SimpleXmlElement $committee
      * @return array
      */

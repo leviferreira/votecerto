@@ -12,9 +12,9 @@ parameters:
     mailer_password: null
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
-    database_mongo: "mongodb://localhost:27017"
+    database_mongo: 'mongodb://localhost:27017'
     available_webservices:
         -
-            name: 'CamaraFederal'
+            name: CamaraFederal
             url: 'http://www.camara.gov.br/SitCamaraWS/Deputados.asmx'
-            class: 'VoteCerto\WebBundle\Organizations\CamaraFederal'
+            class: VoteCerto\WebBundle\Organizations\CamaraFederal

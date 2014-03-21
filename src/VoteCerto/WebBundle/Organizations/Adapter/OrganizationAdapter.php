@@ -6,6 +6,9 @@ use VoteCerto\WebBundle\Organizations;
 
 class OrganizationAdapter
 {
+    /**
+     * @var \VoteCerto\WebBundle\Organizations\Interfaces\OrganizationInterface
+     */
     protected $organization;
 
     public function __construct($class, $url)
@@ -23,6 +26,10 @@ class OrganizationAdapter
         $this->organization = $organization;
     }
 
+    /**
+     * Get the Deputies from the organization adapted
+     * @return array
+     */
     public function getDeputies()
     {
         return $this->organization->getDeputies();

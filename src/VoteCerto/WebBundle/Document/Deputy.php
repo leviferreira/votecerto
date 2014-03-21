@@ -1,25 +1,112 @@
 <?php
+/**
+ * Deputy document
+ */
 namespace VoteCerto\WebBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
+/**
+ * Class Deputy
+ * Represents an Deputy
+ * @package VoteCerto\WebBundle\Document
+ */
 class Deputy
 {
+    /**
+     * Mongo id hash
+     * @var string
+     */
     protected $id;
+
+    /**
+     * Deputy identifier
+     * @var int
+     */
     protected $idDeputy;
+
+    /**
+     * Deputy condition
+     * @var "Titular"|Suplente
+     */
     protected $condition;
+
+    /**
+     * Unique id for deputy registration
+     * @var int
+     */
     protected $registration;
+
+    /**
+     * Original Name of an Deputy
+     * @var string
+     */
     protected $name;
+
+    /**
+     * Fantasy name of an Deputy
+     * @var string
+     */
     protected $fantasyName;
+
+    /**
+     * Deputy Photo url
+     * @var string
+     */
     protected $photo;
+
+    /**
+     * Deputy sex (female or male)
+     * @var string
+     */
     protected $sex;
+
+    /**
+     * State that the deputy represents
+     * @var string
+     */
     protected $state;
+
+    /**
+     * Deputy's filiation
+     * @var string
+     */
     protected $filiation;
+
+    /**
+     * Cabinet location number
+     * @var string
+     */
     protected $cabinet;
+
+    /**
+     * Cabinet attachment
+     * @var string
+     */
     protected $attachment;
+
+    /**
+     * Deputy contact phone
+     * @var
+     */
     protected $phone;
+
+    /**
+     * Deputy contact email
+     * @var
+     */
     protected $email;
+
+    /**
+     * Deputy localizer
+     * @var string
+     */
     protected $localizer;
+
+    /**
+     * Committees that this deputy represents
+     * @var
+     */
     protected $committees;
 
     /**
@@ -32,6 +119,11 @@ class Deputy
         return $this->id;
     }
 
+    /**
+     * Sets the id
+     * @param $id
+     * @return $this
+     */
     public function setId($id)
     {
         $this->id = $id;
