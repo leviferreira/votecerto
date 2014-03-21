@@ -166,7 +166,7 @@
                             <h3 class="panel-title">Jucicleide da Silva</h3>
                         </div>
                         <div class="panel-body">
-                            <img class="media-object" src="image/user-icon.png" alt="...">
+                            <img class="media-object" src="../../src/VoteCerto/WebBundle/Resources/public/images/user-icon.png" alt="...">
                             <p>
                                 Silvio Santos Ipsum É dinheiram ou não éam? Ma o Silvio Santos Ipsum é muitoam
                             </p>
@@ -178,7 +178,7 @@
                             <h3 class="panel-title">Jucicleide da Silva</h3>
                         </div>
                         <div class="panel-body">
-                            <img class="media-object" src="image/user-icon.png" alt="...">
+                            <img class="media-object" src="../../src/VoteCerto/WebBundle/Resources/public/images/user-icon.png" alt="...">
                             <p> Silvio Santos Ipsum É dinheiram ou não éam? Ma o Silvio Santos Ipsum é muitoam
                                 interesanteam. Com eleam ma você vai gerar textuans ha haae. Ha hai. Bem boladoam,
                                 bem boladoam. Bem gozadoam. É faciam ou não éam? Ma! Ao adiquirir o carnêam do Baúam,
@@ -195,7 +195,7 @@
                             <h3 class="panel-title">Jucicleide da Silva</h3>
                         </div>
                         <div class="panel-body">
-                            <img class="media-object" src="image/user-icon.png" alt="...">
+                            <img class="media-object" src="../../src/VoteCerto/WebBundle/Resources/public/images/user-icon.png" alt="...">
                             <p> Silvio Santos Ipsum É dinheiram ou não éam? Ma o Silvio Santos Ipsum é muitoam
                                 interesanteam. Com eleam ma você vai gerar textuans ha haae. Ha hai. Bem boladoam,
                                 bem boladoam. Bem gozadoam. É faciam ou não éam? Ma! Ao adiquirir o carnêam do Baúam,
@@ -212,7 +212,7 @@
                             <h3 class="panel-title">Jucicleide da Silva</h3>
                         </div>
                         <div class="panel-body">
-                            <img class="media-object" src="image/user-icon.png" alt="...">
+                            <img class="media-object" src="../../src/VoteCerto/WebBundle/Resources/public/images/user-icon.png" alt="...">
                             <p> Silvio Santos Ipsum É dinheiram ou não éam? Ma o Silvio Santos Ipsum é muitoam
                                 interesanteam. Com eleam ma você vai gerar textuans ha haae. Ha hai. Bem boladoam,
                                 bem boladoam. Bem gozadoam. É faciam ou não éam? Ma! Ao adiquirir o carnêam do Baúam,
