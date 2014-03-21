@@ -10,23 +10,26 @@ class DeputiesWebserviceManagerTest extends WebTestCase
 
     public function setUp()
     {
-        $this->container = $this->getKernelClass()->getContainer();
+        $client = static::createClient();
+        $this->container = $client->getContainer();
     }
     public function testParliamentariansUpdate()
     {
         $webserviceManager = new WebserviceManager(
             $this->container, [
-                'name' => 'MockedOrganization',
-                'url' => '',
-                'class' => 'VoteCerto\WebBundle\Organizations\MockedOrganization'
+                [
+                    'name' => 'MockedOrganization',
+                    'url' => '',
+                    'class' => 'VoteCerto\WebBundle\Organizations\MockedOrganization'
+                ]
             ]
         );
-
         $this->assertTrue($webserviceManager->updateParliamentarians());
 
         $dm = $this->container->get('doctrine_mongodb')->getManager();
-        $found = $dm->getRepository('WebBundle:Parliamentarian')->findOneByIdParliamentarian('1234567890');
-        $this->assertInstanceOf('Parliamentarian', $found);
+        $found = $dm->getRepository('WebBundle:Parliamentarian')->findOneByEmail('fake@fake.com');
+
+        $this->assertInstanceOf('VoteCerto\WebBundle\Document\Parliamentarian', $found);
 
         $dm->remove($found);
         $dm->flush();

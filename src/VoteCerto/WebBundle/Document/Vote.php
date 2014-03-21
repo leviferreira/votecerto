@@ -94,7 +94,7 @@ class Vote {
      * @param VoteCerto\WebBundle\Document\Parliamentarians $deputy
      * @return self
      */
-    public function setDeputy(\VoteCerto\WebBundle\Document\Parliamentarians $deputy)
+    public function setDeputy(\VoteCerto\WebBundle\Document\Parliamentarian $deputy)
     {
         $this->deputy = $deputy;
         return $this;

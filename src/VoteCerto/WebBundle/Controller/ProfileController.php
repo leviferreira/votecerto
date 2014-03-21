@@ -22,6 +22,11 @@ class ProfileController extends Controller
         $dm = $this->container->get('doctrine_mongodb')->getManager();
         $profile = $dm->getRepository('WebBundle:Parliamentarian')->findOneBySlug($slug);
 
-        return new Response();
+        return $this->render("WebBundle:Profile:index.html.twig", ['profile' => $profile]);
+    }
+
+    public function voteAction()
+    {
+
     }
 }
