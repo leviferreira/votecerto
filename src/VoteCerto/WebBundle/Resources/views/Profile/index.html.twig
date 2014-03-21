@@ -23,6 +23,13 @@
                             <strong>Telefone:</strong> +55 (61) {{ profile.phone }}
                         <br />
                             <strong>Email:</strong> <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+                        <br />
+                            <strong>Votos:</strong>
+                            {% if profile.votes >0 %}
+                                <span class="green">+{{ profile.votes|number_format }}</span>
+                            {% else %}
+                                <span class="red">{{ profile.votes|number_format }}</span>
+                            {% endif %}</a>
                         </p>
                     </div>
                 </div>
@@ -62,55 +69,13 @@
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div class="tab-pane active" id="projects">
+                    <div class="tab-pane active" id="comissions">
                         <p>
-                            Silvio Santos Ipsum É dinheiram ou não éam? Ma o Silvio Santos Ipsum é muitoam
-                            interesanteam. Com eleam ma você vai gerar textuans ha haae. Ha hai. Bem boladoam,
-                            bem boladoam. Bem gozadoam. É faciam ou não éam? Ma! Ao adiquirir o carnêam do Baúam,
-                            vocêam estará concorrendoam a um prêmiam de cem mil reaisam. É por suam contam em
-                            riscoamm? Ma va pra lá. Wellintaaammmmmmmmm. Ma! Ao adiquirir o carnêam do Baúam,
-                            vocêam estará concorrendoam a um prêmiam de cem mil reaisam. Eu só acreditoammmm....
-                            Vendoammmm. É por suam contam em riscoamm? Valendoam um mmilhãoam de reaisammm.
-                            Silvio Santos Ipsum É dinheiram ou não éam? Ma o Silvio Santos Ipsum é muitoam
-                            interesanteam. Com eleam ma você vai gerar textuans ha haae. Ha hai. Bem boladoam,
-                            bem boladoam. Bem gozadoam. É faciam ou não éam? Ma! Ao adiquirir o carnêam do Baúam,
-                            vocêam estará concorrendoam a um prêmiam de cem mil reaisam. É por suam contam em
-                            riscoamm? Ma va pra lá. Wellintaaammmmmmmmm. Ma! Ao adiquirir o carnêam do Baúam,
-                            vocêam estará concorrendoam a um prêmiam de cem mil reaisam. Eu só acreditoammmm....
-                            Vendoammmm. É por suam contam em riscoamm? Valendoam um mmilhãoam de reaisammm.
-                        </p>
-                    </div>
-                    <div class="tab-pane" id="commissions">
-                        <p>
-                            Silvio Santos Ipsum É dinheiram ou não éam? Ma o Silvio Santos Ipsum é muitoam
-                            interesanteam. Com eleam ma você vai gerar textuans ha haae. Ha hai. Bem boladoam,
-                            bem boladoam. Bem gozadoam. É faciam ou não éam? Ma! Ao adiquirir o carnêam do Baúam,
-                            vocêam estará concorrendoam a um prêmiam de cem mil reaisam. É por suam contam em
-                            riscoamm? Ma va pra lá. Wellintaaammmmmmmmm. Ma! Ao adiquirir o carnêam do Baúam,
-                            vocêam estará concorrendoam a um prêmiam de cem mil reaisam. Eu só acreditoammmm....
-                            Vendoammmm. É por suam contam em riscoamm? Valendoam um mmilhãoam de reaisammm.
-                        </p>
-                    </div>
-                    <div class="tab-pane" id="proposedLaws">
-                        <p>
-                            Silvio Santos Ipsum É dinheiram ou não éam? Ma o Silvio Santos Ipsum é muitoam
-                            interesanteam. Com eleam ma você vai gerar textuans ha haae. Ha hai. Bem boladoam,
-                            bem boladoam. Bem gozadoam. É faciam ou não éam? Ma! Ao adiquirir o carnêam do Baúam,
-                            vocêam estará concorrendoam a um prêmiam de cem mil reaisam. É por suam contam em
-                            riscoamm? Ma va pra lá. Wellintaaammmmmmmmm. Ma! Ao adiquirir o carnêam do Baúam,
-                            vocêam estará concorrendoam a um prêmiam de cem mil reaisam. Eu só acreditoammmm....
-                            Vendoammmm. É por suam contam em riscoamm? Valendoam um mmilhãoam de reaisammm.
-                        </p>
-                    </div>
-                    <div class="tab-pane" id="expenditures">
-                        <p>
-                            Silvio Santos Ipsum É dinheiram ou não éam? Ma o Silvio Santos Ipsum é muitoam
-                            interesanteam. Com eleam ma você vai gerar textuans ha haae. Ha hai. Bem boladoam,
-                            bem boladoam. Bem gozadoam. É faciam ou não éam? Ma! Ao adiquirir o carnêam do Baúam,
-                            vocêam estará concorrendoam a um prêmiam de cem mil reaisam. É por suam contam em
-                            riscoamm? Ma va pra lá. Wellintaaammmmmmmmm. Ma! Ao adiquirir o carnêam do Baúam,
-                            vocêam estará concorrendoam a um prêmiam de cem mil reaisam. Eu só acreditoammmm....
-                            Vendoammmm. É por suam contam em riscoamm? Valendoam um mmilhãoam de reaisammm.
+                            <ul>
+                               {% for committee in profile.committees %}
+                                    <li><strong>{{ committee.initials }}: </strong>{{  committee.description }}</li>
+                               {% endfor %}
+                            </ul>
                         </p>
                     </div>
                 </div>
@@ -127,67 +92,41 @@
                         <h3 class="panel-title">Jucicleide da Silva</h3>
                     </div>
                     <div class="panel-body">
-                        <img class="media-object" src="../../src/VoteCerto/WebBundle/Resources/public/images/user-icon.png" alt="...">
+                        <img class="media-object" src="{{ asset('bundles/web/images/user-icon.png') }}" alt="...">
                         <p>
                             Silvio Santos Ipsum É dinheiram ou não éam? Ma o Silvio Santos Ipsum é muitoam
                         </p>
                     </div>
                 </div>
 
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Jucicleide da Silva</h3>
-                    </div>
-                    <div class="panel-body">
-                        <img class="media-object" src="../../src/VoteCerto/WebBundle/Resources/public/images/user-icon.png" alt="...">
-                        <p> Silvio Santos Ipsum É dinheiram ou não éam? Ma o Silvio Santos Ipsum é muitoam
-                            interesanteam. Com eleam ma você vai gerar textuans ha haae. Ha hai. Bem boladoam,
-                            bem boladoam. Bem gozadoam. É faciam ou não éam? Ma! Ao adiquirir o carnêam do Baúam,
-                            vocêam estará concorrendoam a um prêmiam de cem mil reaisam. É por suam contam em
-                            riscoamm? Ma va pra lá. Wellintaaammmmmmmmm. Ma! Ao adiquirir o carnêam do Baúam,
-                            vocêam estará concorrendoam a um prêmiam de cem mil reaisam. Eu só acreditoammmm....
-                            Vendoammmm. É por suam contam em riscoamm? Valendoam um mmilhãoam de reaisammm.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Jucicleide da Silva</h3>
-                    </div>
-                    <div class="panel-body">
-                        <img class="media-object" src="../../src/VoteCerto/WebBundle/Resources/public/images/user-icon.png" alt="...">
-                        <p> Silvio Santos Ipsum É dinheiram ou não éam? Ma o Silvio Santos Ipsum é muitoam
-                            interesanteam. Com eleam ma você vai gerar textuans ha haae. Ha hai. Bem boladoam,
-                            bem boladoam. Bem gozadoam. É faciam ou não éam? Ma! Ao adiquirir o carnêam do Baúam,
-                            vocêam estará concorrendoam a um prêmiam de cem mil reaisam. É por suam contam em
-                            riscoamm? Ma va pra lá. Wellintaaammmmmmmmm. Ma! Ao adiquirir o carnêam do Baúam,
-                            vocêam estará concorrendoam a um prêmiam de cem mil reaisam. Eu só acreditoammmm....
-                            Vendoammmm. É por suam contam em riscoamm? Valendoam um mmilhãoam de reaisammm.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Jucicleide da Silva</h3>
-                    </div>
-                    <div class="panel-body">
-                        <img class="media-object" src="../../src/VoteCerto/WebBundle/Resources/public/images/user-icon.png" alt="...">
-                        <p> Silvio Santos Ipsum É dinheiram ou não éam? Ma o Silvio Santos Ipsum é muitoam
-                            interesanteam. Com eleam ma você vai gerar textuans ha haae. Ha hai. Bem boladoam,
-                            bem boladoam. Bem gozadoam. É faciam ou não éam? Ma! Ao adiquirir o carnêam do Baúam,
-                            vocêam estará concorrendoam a um prêmiam de cem mil reaisam. É por suam contam em
-                            riscoamm? Ma va pra lá. Wellintaaammmmmmmmm. Ma! Ao adiquirir o carnêam do Baúam,
-                            vocêam estará concorrendoam a um prêmiam de cem mil reaisam. Eu só acreditoammmm....
-                            Vendoammmm. É por suam contam em riscoamm? Valendoam um mmilhãoam de reaisammm.
-                        </p>
-                    </div>
-                </div>
-
-                <button type="button" class="btn btn-primary col-md-12">Carregar mais.</button>
+                <!--button type="button" class="btn btn-primary col-md-12">Carregar mais.</button-->
             </div>
         </div>
     </div>
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $("#btnVoteLike").on("click", function(event) {
+            event.preventDefault();
+            $("#btnVoteLike").prop("disabled", true);
+            $("#btnVoteDislike").prop("disabled", true);
+            $("#commentFields").prop("disabled", true);
+        });
+
+        $("#btnVoteDislike").on("click", function(event) {
+            event.preventDefault();
+
+            if ( $("#commentFields").val().length < 1 ) {
+                alert("É obrigatório dizer porque não gosta deste político.");
+                return false;
+            }
+
+            $("#btnVoteLike").prop("disabled", true);
+            $("#btnVoteDislike").prop("disabled", true);
+            $("#commentFields").prop("disabled", true);
+        });
+    </script>
 {% endblock %}

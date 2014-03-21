@@ -1,7 +1,7 @@
 install:
 	php composer.phar install --no-dev
 	@mkdir -p `pwd`/build/logs
-	
+
 phpunit:
 	php phpunit.phar -c app/
 

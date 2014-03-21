@@ -5,6 +5,8 @@ VoteCerto\WebBundle\Document\Vote:
             id: true
         vote:
             type: boolean
+        comment:
+            type: string
 
     type: document
     referenceOne:
