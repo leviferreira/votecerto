@@ -1,9 +1,9 @@
-# src/VoteCerto/WebBundle/Resources/config/doctrine/Deputy.mongodb.yml
-VoteCerto\WebBundle\Document\Deputy:
+# src/VoteCerto/WebBundle/Resources/config/doctrine/Parliamentarian.mongodb.yml
+VoteCerto\WebBundle\Document\Parliamentarian:
     fields:
         id:
             id: true
-        idDeputy:
+        idParliamentarian:
             type: int
         condition:
             type: string

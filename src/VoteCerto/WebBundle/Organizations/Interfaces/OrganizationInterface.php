@@ -19,7 +19,7 @@ interface OrganizationInterface
      * Get all deputies from this webservice
      * @return array
      */
-    public function getDeputies();
+    public function getParliamentarians();
 
     /**
      * Executes an action at the webservice

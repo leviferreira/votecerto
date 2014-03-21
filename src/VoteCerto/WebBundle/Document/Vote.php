@@ -1,14 +1,14 @@
 <?php
 /**
-* Deputy document
+* Parliamentarian document
 */
 namespace VoteCerto\WebBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
-* Class Deputy
-* Represents an Deputy
+* Class Parliamentarian
+* Represents an Parliamentarian
 * @package VoteCerto\WebBundle\Document
 */
 class Vote {
@@ -24,9 +24,9 @@ class Vote {
     protected $vote;
 
     /**
-     * @var VoteCerto\WebBundle\Document\Deputy
+     * @var VoteCerto\WebBundle\Document\Parliamentarian
      */
-    protected $deputy;
+    protected $parliamentarian;
 
 
     /**
@@ -62,24 +62,24 @@ class Vote {
     }
 
     /**
-     * Set deputy
+     * Set parliamentarian
      *
-     * @param VoteCerto\WebBundle\Document\Deputy $deputy
+     * @param VoteCerto\WebBundle\Document\Parliamentarian $parliamentarian
      * @return self
      */
-    public function setDeputy(\VoteCerto\WebBundle\Document\Deputy $deputy)
+    public function setParliamentarian(\VoteCerto\WebBundle\Document\Parliamentarian $parliamentarian)
     {
-        $this->deputy = $deputy;
+        $this->parliamentarian = $parliamentarian;
         return $this;
     }
 
     /**
-     * Get deputy
+     * Get parliamentarian
      *
-     * @return VoteCerto\WebBundle\Document\Deputy $deputy
+     * @return VoteCerto\WebBundle\Document\Parliamentarian $parliamentarian
      */
-    public function getDeputy()
+    public function getParliamentarian()
     {
-        return $this->deputy;
+        return $this->parliamentarian;
     }
 }

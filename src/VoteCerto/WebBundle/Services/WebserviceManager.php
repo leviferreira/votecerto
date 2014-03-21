@@ -2,7 +2,6 @@
 namespace VoteCerto\WebBundle\Services;
 
 use Symfony\Component\DependencyInjection\Container;
-use VoteCerto\WebBundle\Document\Deputy;
 use VoteCerto\WebBundle\Organizations\Adapter\OrganizationAdapter;
 
 class WebserviceManager
@@ -28,15 +27,15 @@ class WebserviceManager
     /**
      * Update the deputies at mongodb
      */
-    public function updateDeputies()
+    public function updateParliamentarians()
     {
         $dm = $this->container->get('doctrine_mongodb')->getManager();
 
         foreach ($this->availableWebServices as $webservice) {
             $organization = new OrganizationAdapter($webservice['class'], $webservice['url']);
 
-            foreach ($organization->getDeputies() as $document) {
-                $found = $dm->getRepository('WebBundle:Deputy')->findOneByName($document->getName());
+            foreach ($organization->getParliamentarians() as $document) {
+                $found = $dm->getRepository('WebBundle:Parliamentarian')->findOneByName($document->getName());
 
                 if(!$found) {
                     $dm->persist($document);
@@ -46,11 +45,10 @@ class WebserviceManager
                 }
 
                 $dm->flush();
-                echo ".";
             }
-            echo ".";
         }
-        echo "\n";
+
+        return true;
     }
 
 

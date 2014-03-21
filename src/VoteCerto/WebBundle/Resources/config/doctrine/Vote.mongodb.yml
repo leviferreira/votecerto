@@ -9,4 +9,4 @@ VoteCerto\WebBundle\Document\Vote:
     type: document
     referenceOne:
         deputy:
-            targetDocument: Deputy
+            targetDocument: Parliamentarians
