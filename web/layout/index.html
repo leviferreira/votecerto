@@ -52,7 +52,7 @@
                             <p>
                                 Silvio Santos Ipsum É dinheiram ou não éam? Ma o Silvio Santos Ipsum é
                                 muitoam interesanteam. Com eleam ma você vai gerar textuans ha haae.
-                                Ha hai. Bem boladoam, bem boladoam. Bem gozadoam.
+                                Ha hai. Bem boladoam, bem  boladoam. Bem gozadoam.
                                 É faciam ou não éam? Ma! Ao adiquirir o carnêam do Baúam, vocêam estará
                                 concorrendoam a um prêmiam de cem mil reaisam.
                                 É por suam contam em riscoamm? Ma va pra lá. Wellintaaammmmmmmmm.
@@ -232,29 +232,26 @@
         <script src="/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script>
-            $("#btnVoteLike").on("click", function( event ){
-
+            $("#btnVoteLike").on("click", function(event) {
                 event.preventDefault();
-                $("#btnVoteLike").attr("disabled", "disabled");
-                $("#btnVoteDislike").attr("disabled", "disabled");
-                $("#commentFields").attr("disabled", "disabled");
+                
+                $("#btnVoteLike").prop("disabled", true);
+                $("#btnVoteDislike").prop("disabled", true);
+                $("#commentFields").prop("disabled", true);
             });
 
-            $("#btnVoteDislike").on("click", function(){
-
+            $("#btnVoteDislike").on("click", function(event) {
                 event.preventDefault();
 
-                if ( $("#commentFields").val().length < 1 ){
+                if ( $("#commentFields").val().length < 1 )
+                {
                     alert("É obrigatório dizer porque não votaria neste político.");
                     return false;
                 }
 
-                $("#btnVoteLike").attr("disabled", "disabled");
-                $("#btnVoteDislike").attr("disabled", "disabled");
-                $("#commentFields").attr("disabled", "disabled");
-
-
-
+                $("#btnVoteLike").prop("disabled", true);
+                $("#btnVoteDislike").prop("disabled", true);
+                $("#commentFields").prop("disabled", true);
             });
         </script>
     </body>
