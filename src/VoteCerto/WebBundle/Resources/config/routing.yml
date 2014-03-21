@@ -5,3 +5,7 @@ web_homepage:
 webbundle_profile:
     pattern:  /parlamentar/{slug}
     defaults: { _controller: WebBundle:Profile:index }
+
+vote:
+    pattern: /parlamentar/{slug}/vote
+    defaults: { _controller: WebBundle:Profile:vote }

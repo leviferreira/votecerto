@@ -109,4 +109,31 @@ class Vote {
     {
         return $this->deputy;
     }
+    /**
+     * @var string $comment
+     */
+    protected $comment;
+
+
+    /**
+     * Set comment
+     *
+     * @param string $comment
+     * @return self
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+        return $this;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return string $comment
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
 }

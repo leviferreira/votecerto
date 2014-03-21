@@ -39,4 +39,8 @@
 {% block javascripts %}
     <script src="{{ asset("bundles/web/js/jquery.min.js") }}"></script>
     <script src="{{ asset("bundles/web/js/bootstrap.min.js") }}"></script>
+    {% set parliamentarians = get_parliamentarians() %}
+    <script type="text/javascript">
+        var profiles = {{ parliamentarians|json_encode()|raw }};
+    </script>
 {% endblock %}

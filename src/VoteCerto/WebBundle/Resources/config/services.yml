@@ -2,3 +2,9 @@ services:
     webservice_manager:
         class:  VoteCerto\WebBundle\Services\WebserviceManager
         arguments: [ "@service_container", '%available_webservices%' ]
+
+    twig.extension:
+            class: VoteCerto\WebBundle\Extension\Twig
+            arguments: [ "@service_container" ]
+            tags:
+                - { name: twig.extension }

@@ -25,7 +25,7 @@ class ProfileController extends Controller
         return $this->render("WebBundle:Profile:index.html.twig", ['profile' => $profile]);
     }
 
-    public function voteAction()
+    public function voteAction($slug)
     {
 
     }
