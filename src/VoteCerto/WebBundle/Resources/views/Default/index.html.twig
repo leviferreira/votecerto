@@ -3,6 +3,58 @@
 {% block title %} Pagina Inicial {% endblock %}
 
 {% block container %}
+    <div class="container">
+        <div class="row">
 
+            <div class="col-md-6">
+                <div class="panel panel-success topPoliticos">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Top Políticos Positivos <span class="glyphicon glyphicon-thumbs-up pull-right"></span></h3>
+                    </div>
+                    <ul class="list-group">
+                        {% for person in positives %}
+                        <li class="list-group-item">
+                            <img src="{{ person.photo }}" alt="{{ person.name }}" class="img-circle">
+                            <h2> {{ person.fantasyName }}
+                                {% if person.votes >=0 %}
+                                    <span class="green">+{{ person.votes|number_format }}</span>
+                                {% else %}
+                                    <span class="red">{{ person.votes }}</span>
+                                {% endif %}
+                            </h2>
+
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="panel panel-danger topPoliticos">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Top Políticos Negativos<span class="glyphicon glyphicon-thumbs-down pull-right"></span></h3>
+                    </div>
+                    <ul class="list-group">
+                        {% for person in negatives %}
+                            <li class="list-group-item">
+                                <a href="{{ path('webbundle_profile', {'slug': person.slug}) }}">
+                                    <img src="{{ person.photo }}" alt="{{ person.name }}" class="img-circle">
+                                    <h2> {{ person.fantasyName }}
+                                        {% if person.votes >=0 %}
+                                            <span class="green">+{{ person.votes|number_format }}</span>
+                                        {% else %}
+                                            <span class="red">{{ person.votes }}</span>
+                                        {% endif %}
+                                    </h2>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 {% endblock %}
 

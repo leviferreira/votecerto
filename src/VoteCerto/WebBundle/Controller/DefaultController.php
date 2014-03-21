@@ -19,8 +19,19 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $parliamentarians = [];
+        $dm = $this->container->get('doctrine_mongodb')->getManager();
 
-        return $this->render("WebBundle:Default:index.html.twig");
+        $negatives = $dm->createQueryBuilder('WebBundle:Parliamentarian')->field('votes')->lt(0)->sort(
+            'votes', 'asc'
+        )->limit(5)->getQuery()->execute();
+
+        $positives = $dm->createQueryBuilder('WebBundle:Parliamentarian')->field('votes')->gt(0)->sort(
+            'votes', 'desc'
+        )->limit(5)->getQuery()->execute();
+
+        return $this->render("WebBundle:Default:index.html.twig", [
+            'positives' => $positives,
+            'negatives' => $negatives,
+        ]);
     }
 }

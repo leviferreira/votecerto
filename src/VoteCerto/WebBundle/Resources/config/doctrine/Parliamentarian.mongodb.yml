@@ -33,5 +33,7 @@ VoteCerto\WebBundle\Document\Parliamentarian:
             type: int
         votes:
             type: int
+        slug:
+            type: string
         committees:
             type: collection

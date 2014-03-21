@@ -39,73 +39,7 @@
             </div>
         </div>
 
-        <div class="container">
-            <div class="row">
 
-                <div class="col-md-6">
-                    <div class="panel panel-success topPoliticos">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Top Políticos <span class="glyphicon glyphicon-thumbs-up pull-right"></span></h3>
-                        </div>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <img src="http://www.camara.gov.br/internet/deputado/bandep/74065.jpg" alt="..." class="img-circle">
-                                <h2> List item 1 </h2>
-                            </li>
-                            <li class="list-group-item">
-                                <img src="http://www.camara.gov.br/internet/deputado/bandep/74065.jpg" alt="..." class="img-circle">
-                                <h2> List item 1 </h2>
-                            </li>
-                            <li class="list-group-item">
-                                <img src="http://www.camara.gov.br/internet/deputado/bandep/74065.jpg" alt="..." class="img-circle">
-                                <h2> List item 1 </h2>
-                            </li>
-                            <li class="list-group-item">
-                                <img src="http://www.camara.gov.br/internet/deputado/bandep/74065.jpg" alt="..." class="img-circle">
-                                <h2> List item 1 </h2>
-                            </li>
-                            <li class="list-group-item">
-                                <img src="http://www.camara.gov.br/internet/deputado/bandep/74065.jpg" alt="..." class="img-circle">
-                                <h2> List item 1 </h2>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="panel panel-danger topPoliticos">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Top Políticos <span class="glyphicon glyphicon-thumbs-down pull-right"></span></h3>
-                        </div>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <img src="http://www.camara.gov.br/internet/deputado/bandep/74065.jpg" alt="..." class="img-circle">
-                                <h2> List item 1 </h2>
-                            </li>
-                            <li class="list-group-item">
-                                <img src="http://www.camara.gov.br/internet/deputado/bandep/74065.jpg" alt="..." class="img-circle">
-                                <h2> List item 1 </h2>
-                            </li>
-                            <li class="list-group-item">
-                                <img src="http://www.camara.gov.br/internet/deputado/bandep/74065.jpg" alt="..." class="img-circle">
-                                <h2> List item 1 </h2>
-                            </li>
-                            <li class="list-group-item">
-                                <img src="http://www.camara.gov.br/internet/deputado/bandep/74065.jpg" alt="..." class="img-circle">
-                                <h2> List item 1 </h2>
-                            </li>
-                            <li class="list-group-item">
-                                <img src="http://www.camara.gov.br/internet/deputado/bandep/74065.jpg" alt="..." class="img-circle">
-                                <h2> List item 1 </h2>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
 
         <script src="/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

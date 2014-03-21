@@ -5,6 +5,7 @@
 namespace VoteCerto\WebBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use VoteCerto\WebBundle\Services\Slugifier;
 
 /**
  * Class Parliamentarian
@@ -227,6 +228,7 @@ class Parliamentarian
     public function setFantasyName($fantasyName)
     {
         $this->fantasyName = $fantasyName;
+        $this->setSlug(Slugifier::slugify($fantasyName));
         return $this;
     }
 
@@ -485,5 +487,32 @@ class Parliamentarian
     public function getVotes()
     {
         return $this->votes;
+    }
+    /**
+     * @var string $slug
+     */
+    protected $slug;
+
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return self
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string $slug
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

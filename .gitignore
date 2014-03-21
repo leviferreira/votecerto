@@ -6,3 +6,5 @@ app/cache*
 app/logs/*
 web/bower_components
 .DS_Store
+web/bundles/*
+*~

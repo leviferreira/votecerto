@@ -40,6 +40,7 @@ class WebserviceManager
                 if(!$found) {
                     $dm->persist($document);
                 } else {
+                    $document->setVotes($found->getVotes());
                     $document->setId($found->getId());
                     $dm->merge($document);
                 }

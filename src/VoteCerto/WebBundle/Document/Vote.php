@@ -82,4 +82,31 @@ class Vote {
     {
         return $this->parliamentarian;
     }
+    /**
+     * @var VoteCerto\WebBundle\Document\Parliamentarians
+     */
+    protected $deputy;
+
+
+    /**
+     * Set deputy
+     *
+     * @param VoteCerto\WebBundle\Document\Parliamentarians $deputy
+     * @return self
+     */
+    public function setDeputy(\VoteCerto\WebBundle\Document\Parliamentarians $deputy)
+    {
+        $this->deputy = $deputy;
+        return $this;
+    }
+
+    /**
+     * Get deputy
+     *
+     * @return VoteCerto\WebBundle\Document\Parliamentarians $deputy
+     */
+    public function getDeputy()
+    {
+        return $this->deputy;
+    }
 }
