@@ -1,17 +1,17 @@
 <?php
 /**
- * Deputy document
+ * Parliamentarian document
  */
 namespace VoteCerto\WebBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
- * Class Deputy
- * Represents an Deputy
+ * Class Parliamentarian
+ * Represents an Parliamentarian
  * @package VoteCerto\WebBundle\Document
  */
-class Deputy
+class Parliamentarian
 {
     /**
      * Mongo id hash
@@ -20,55 +20,55 @@ class Deputy
     protected $id;
 
     /**
-     * Deputy identifier
+     * Parliamentarian identifier
      * @var int
      */
-    protected $idDeputy;
+    protected $idParliamentarian;
 
     /**
-     * Deputy condition
+     * Parliamentarian condition
      * @var "Titular"|Suplente
      */
     protected $condition;
 
     /**
-     * Unique id for deputy registration
+     * Unique id for Parliamentarian registration
      * @var int
      */
     protected $registration;
 
     /**
-     * Original Name of an Deputy
+     * Original Name of an Parliamentarian
      * @var string
      */
     protected $name;
 
     /**
-     * Fantasy name of an Deputy
+     * Fantasy name of an Parliamentarian
      * @var string
      */
     protected $fantasyName;
 
     /**
-     * Deputy Photo url
+     * Parliamentarian Photo url
      * @var string
      */
     protected $photo;
 
     /**
-     * Deputy sex (female or male)
+     * Parliamentarian sex (female or male)
      * @var string
      */
     protected $sex;
 
     /**
-     * State that the deputy represents
+     * State that the Parliamentarian represents
      * @var string
      */
     protected $state;
 
     /**
-     * Deputy's filiation
+     * Parliamentarian's filiation
      * @var string
      */
     protected $filiation;
@@ -86,25 +86,25 @@ class Deputy
     protected $attachment;
 
     /**
-     * Deputy contact phone
+     * Parliamentarian contact phone
      * @var
      */
     protected $phone;
 
     /**
-     * Deputy contact email
+     * Parliamentarian contact email
      * @var
      */
     protected $email;
 
     /**
-     * Deputy localizer
+     * Parliamentarian localizer
      * @var string
      */
     protected $localizer;
 
     /**
-     * Committees that this deputy represents
+     * Committees that this Parliamentarian represents
      * @var
      */
     protected $committees;
@@ -131,25 +131,25 @@ class Deputy
     }
 
     /**
-     * Set idDeputy
+     * Set idParliamentarian
      *
-     * @param int $idDeputy
+     * @param int $idParliamentarian
      * @return self
      */
-    public function setIdDeputy($idDeputy)
+    public function setIdParliamentarian($idParliamentarian)
     {
-        $this->idDeputy = $idDeputy;
+        $this->idParliamentarian = $idParliamentarian;
         return $this;
     }
 
     /**
-     * Get idDeputy
+     * Get idParliamentarian
      *
-     * @return int $idDeputy
+     * @return int $idParliamentarian
      */
-    public function getIdDeputy()
+    public function getIdParliamentarian()
     {
-        return $this->idDeputy;
+        return $this->idParliamentarian;
     }
 
     /**

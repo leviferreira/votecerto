@@ -1,7 +1,7 @@
 <?php
 namespace VoteCerto\WebBundle\Organizations;
 
-use VoteCerto\WebBundle\Document\Deputy;
+use VoteCerto\WebBundle\Document\Parliamentarian;
 use VoteCerto\WebBundle\Organizations\Interfaces\OrganizationInterface;
 
 /**
@@ -23,14 +23,14 @@ class CamaraFederal implements OrganizationInterface
      * Generates a deputies iterator
      * @return array
      */
-    public function getDeputies()
+    public function getParliamentarians()
     {
         $results = $this->executeAction('/ObterDeputados');
         $deputies = simplexml_load_string($results);
 
         foreach ($deputies as $deputy)  {
-            $document = new Deputy();
-            $document->setIdDeputy((int) $deputy->idParlamentar);
+            $document = new Parliamentarian();
+            $document->setIdParliamentarian((int) $deputy->idParlamentar);
             $document->setCondition((string) $deputy->condicao);
             $document->setRegistration((int) $deputy->matricula);
             $document->setName((string) $deputy->nome);

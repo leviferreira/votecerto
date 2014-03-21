@@ -30,9 +30,9 @@ class OrganizationAdapter
      * Get the Deputies from the organization adapted
      * @return array
      */
-    public function getDeputies()
+    public function getParliamentarians()
     {
-        return $this->organization->getDeputies();
+        return $this->organization->getParliamentarians();
     }
 }
 
