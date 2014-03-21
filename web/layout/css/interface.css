@@ -1,0 +1,47 @@
+body {
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+.tab-pane{
+    border-left: 1px solid rgb(221, 221, 221);;
+    border-right: 1px solid rgb(221, 221, 221);;
+    border-bottom: 1px solid rgb(221, 221, 221);;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.tab-pane p{
+    padding: 15px;
+}
+
+.btnVote{
+    line-height: 100px;
+    text-align: center;
+    font-size: 70px;
+}
+
+#profileInformation img{
+    float: left;
+    padding-right: 10px;
+}
+
+#comments{
+    padding-top: 10px ;
+}
+
+#comments img{
+    width: 48px;
+    height: 48px;
+    float: left;
+    margin-right: 10px;
+}
+#comments p{
+    text-align: justify;
+}
+
+#commentFields{
+    resize: none;
+    margin-bottom: 15px;
+    height: 93px;
+}
+
