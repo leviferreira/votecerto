@@ -459,31 +459,4 @@ class Deputy
     {
         return $this->committees;
     }
-    /**
-     * @var int $votes
-     */
-    protected $votes;
-
-
-    /**
-     * Set votes
-     *
-     * @param int $votes
-     * @return self
-     */
-    public function setVotes($votes)
-    {
-        $this->votes = $votes;
-        return $this;
-    }
-
-    /**
-     * Get votes
-     *
-     * @return int $votes
-     */
-    public function getVotes()
-    {
-        return $this->votes;
-    }
 }

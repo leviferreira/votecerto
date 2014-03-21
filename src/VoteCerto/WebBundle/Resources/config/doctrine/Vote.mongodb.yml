@@ -1,0 +1,12 @@
+# src/VoteCerto/WebBundle/Resources/config/doctrine/Vote.mongodb.yml
+VoteCerto\WebBundle\Document\Vote:
+    fields:
+        id:
+            id: true
+        vote:
+            type: boolean
+
+    type: document
+    referenceOne:
+        deputy:
+            targetDocument: Deputy

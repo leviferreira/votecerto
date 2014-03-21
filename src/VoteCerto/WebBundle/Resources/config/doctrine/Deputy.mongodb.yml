@@ -31,5 +31,7 @@ VoteCerto\WebBundle\Document\Deputy:
             type: string
         localizer:
             type: int
+        votes:
+            type: int
         committees:
             type: collection

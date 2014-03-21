@@ -1,0 +1,16 @@
+<?php
+/**
+* Deputy document
+*/
+namespace VoteCerto\WebBundle\Document;
+
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
+/**
+* Class Deputy
+* Represents an Deputy
+* @package VoteCerto\WebBundle\Document
+*/
+class Vote {
+
+}
