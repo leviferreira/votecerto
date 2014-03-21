@@ -20,7 +20,7 @@ class OrganizationAdapter
         $organization = new $class($url);
 
         if(!$organization instanceof OrganizationInterface){
-            throw new \InvalidArgumentException("Class of type $class must be a instance of Organization Interface");
+            throw new \InvalidArgumentException("Class of type $class must be a instance of OrganizationInterface");
         }
 
         $this->organization = $organization;
