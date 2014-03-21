@@ -1,5 +1,5 @@
 # src/VoteCerto/WebBundle/Resources/config/doctrine/Vote.mongodb.yml
-VoteCerto\WebBundle\Document\Vote:
+VoteCerto\WebBundle\Document\Comments:
     fields:
         id:
             id: true

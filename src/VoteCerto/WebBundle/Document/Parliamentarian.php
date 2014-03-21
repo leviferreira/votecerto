@@ -515,4 +515,43 @@ class Parliamentarian
     {
         return $this->slug;
     }
+    /**
+     * @var VoteCerto\WebBundle\Document\Comments
+     */
+    protected $comments = array();
+
+    public function __construct()
+    {
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add comment
+     *
+     * @param VoteCerto\WebBundle\Document\Comments $comment
+     */
+    public function addComment(\VoteCerto\WebBundle\Document\Comments $comment)
+    {
+        $this->comments[] = $comment;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param VoteCerto\WebBundle\Document\Comments $comment
+     */
+    public function removeComment(\VoteCerto\WebBundle\Document\Comments $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return Doctrine\Common\Collections\Collection $comments
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
 }

@@ -3,6 +3,10 @@ services:
         class:  VoteCerto\WebBundle\Services\WebserviceManager
         arguments: [ "@service_container", '%available_webservices%' ]
 
+    parliamentarian_manager:
+        class:  VoteCerto\WebBundle\Services\ParliamentarianManager
+        arguments: [ "@service_container" ]
+
     twig.extension:
             class: VoteCerto\WebBundle\Extension\Twig
             arguments: [ "@service_container" ]

@@ -37,3 +37,8 @@ VoteCerto\WebBundle\Document\Parliamentarian:
             type: string
         committees:
             type: collection
+
+    type: document
+    referenceMany:
+        comments:
+            targetDocument: Comments

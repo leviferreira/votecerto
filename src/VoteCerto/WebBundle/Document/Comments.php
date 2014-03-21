@@ -1,17 +1,17 @@
 <?php
 /**
-* Parliamentarian document
+* Comments document
 */
 namespace VoteCerto\WebBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
-* Class Parliamentarian
+* Class Comments
 * Represents an Parliamentarian
 * @package VoteCerto\WebBundle\Document
 */
-class Vote {
+class Comments {
 
     /**
      * @var MongoId $id

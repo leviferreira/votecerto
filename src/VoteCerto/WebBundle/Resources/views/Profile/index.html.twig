@@ -38,9 +38,9 @@
             <div class="col-md-4">
                 <div class="row">
                     <div class="col-md-12">
-                        <form action="{{ path('vote', {'slug': profile.slug}) }}" method="post">
+                        <form id="voteForm" action="{{ path('vote', {'slug': profile.slug}) }}" method="post">
                             <input type="hidden" id="optionVote" name="option" />
-                            <textarea class="form-control" rows="3" id="commentFields" placeholder="Deixe o seu comentário sobre este político."></textarea>
+                            <textarea name="comment" class="form-control" rows="3" id="commentFields" placeholder="Deixe o seu comentário sobre este político."></textarea>
                         </form>
                     </div>
                 </div>
@@ -93,15 +93,17 @@
             <div class="col-md-12">
 
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <!--div class="panel-heading">
                         <h3 class="panel-title">Jucicleide da Silva</h3>
-                    </div>
+                    </div-->
+                    {% for comment in profile.getComments() %}
                     <div class="panel-body">
                         <img class="media-object" src="{{ asset('bundles/web/images/user-icon.png') }}" alt="...">
                         <p>
-                            Silvio Santos Ipsum É dinheiram ou não éam? Ma o Silvio Santos Ipsum é muitoam
+                           {{ comment.comment }}
                         </p>
                     </div>
+                    {% endfor %}
                 </div>
 
                 <!--button type="button" class="btn btn-primary col-md-12">Carregar mais.</button-->
@@ -116,11 +118,9 @@
     <script type="text/javascript">
         $("#btnVoteLike").on("click", function(event) {
             event.preventDefault();
-            $("#btnVoteLike").prop("disabled", true);
-            $("#btnVoteDislike").prop("disabled", true);
-            $("#commentFields").prop("disabled", true);
+
             $("#optionVote").val("1");
-            $("#optionVote").parent().submit();
+            $("#voteForm").submit();
         });
 
         $("#btnVoteDislike").on("click", function(event) {
@@ -131,11 +131,8 @@
                 return false;
             }
 
-            $("#btnVoteLike").prop("disabled", true);
-            $("#btnVoteDislike").prop("disabled", true);
-            $("#commentFields").prop("disabled", true);
             $("#optionVote").val("0");
-            $("#optionVote").parent().submit();
+            $("#voteForm").submit();
         });
     </script>
 {% endblock %}

@@ -12,18 +12,16 @@
                         <h3 class="panel-title">Top Políticos Positivos <span class="glyphicon glyphicon-thumbs-up pull-right"></span></h3>
                     </div>
                     <ul class="list-group">
-                        {% for person in positives %}
-                        <li class="list-group-item">
-                            <img src="{{ person.photo }}" alt="{{ person.name }}" class="img-circle">
-                            <h2> {{ person.fantasyName }}
-                                {% if person.votes >=0 %}
-                                    <span class="green">+{{ person.votes|number_format }}</span>
-                                {% else %}
-                                    <span class="red">{{ person.votes }}</span>
-                                {% endif %}
-                            </h2>
 
-                        </li>
+                        {% for person in positives %}
+                            <li class="list-group-item">
+                                <a href="{{ path('webbundle_profile', {'slug': person.slug}) }}">
+                                <img src="{{ person.photo }}" alt="{{ person.name }}" class="img-circle">
+                                <h2> {{ person.fantasyName }}
+                                    <span class="text-success">+{{ person.votes|number_format }}</span>
+                                </h2>
+                                </a>
+                            </li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -40,11 +38,7 @@
                                 <a href="{{ path('webbundle_profile', {'slug': person.slug}) }}">
                                     <img src="{{ person.photo }}" alt="{{ person.name }}" class="img-circle">
                                     <h2> {{ person.fantasyName }}
-                                        {% if person.votes >=0 %}
-                                            <span class="green">+{{ person.votes|number_format }}</span>
-                                        {% else %}
-                                            <span class="red">{{ person.votes }}</span>
-                                        {% endif %}
+                                        <span class="text-danger">{{ person.votes }}</span>
                                     </h2>
                                 </a>
                             </li>
