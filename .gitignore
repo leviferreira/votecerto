@@ -4,3 +4,4 @@ vendor*
 bin*
 app/cache*
 app/logs/*
+web/bower_components
