@@ -45,3 +45,13 @@ body {
     height: 93px;
 }
 
+.topPoliticos h3{
+    font-size: 40px;
+}
+
+
+.topPoliticos img{
+    width: 48px;
+    float: left;
+    margin-right: 15px;
+}

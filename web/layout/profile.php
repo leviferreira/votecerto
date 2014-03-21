@@ -235,7 +235,7 @@
             $("#btnVoteLike").on("click", function( event ){
 
                 event.preventDefault();
-                $("#btnVoteLike").attr("disabled", "disabled");
+                $("#btnVoteLike").prop("disabled", true);
                 $("#btnVoteDislike").attr("disabled", "disabled");
                 $("#commentFields").attr("disabled", "disabled");
             });
