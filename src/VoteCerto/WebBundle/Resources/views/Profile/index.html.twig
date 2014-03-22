@@ -67,6 +67,25 @@
 
 
                     </div>
+                {% else %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="alert alert-danger">
+                                Para votar e comentar é necessário estar logado.
+                                <br>
+                                {{ facebook_login_button({
+                                    'autologoutlink': false,
+                                    'size': 'medium',
+                                    label: 'Logar com o Facebook'
+
+                                    })
+                                }}
+                            </div>
+
+                            
+                        </div>
+                    </div>
+
                 {% endif %}
                 </div>
             </div>
@@ -78,7 +97,7 @@
             <div class="col-md-12">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs">
-                    <li><a href="#commissions" data-toggle="tab">Comissões</a></li>
+                    <li class="active"><a href="#commissions" data-toggle="tab">Comissões</a></li>
                 </ul>
 
                 <!-- Tab panes -->
