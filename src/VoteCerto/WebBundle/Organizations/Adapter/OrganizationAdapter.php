@@ -4,6 +4,10 @@ namespace VoteCerto\WebBundle\Organizations\Adapter;
 use VoteCerto\WebBundle\Organizations\Interfaces\OrganizationInterface;
 use VoteCerto\WebBundle\Organizations;
 
+/**
+ * Class OrganizationAdapter
+ * @package VoteCerto\WebBundle\Organizations\Adapter
+ */
 class OrganizationAdapter
 {
     /**
@@ -11,6 +15,10 @@ class OrganizationAdapter
      */
     protected $organization;
 
+    /**
+     * @param $class
+     * @param $url
+     */
     public function __construct($class, $url)
     {
         if(!class_exists($class)){

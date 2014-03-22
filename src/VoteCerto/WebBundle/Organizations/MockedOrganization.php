@@ -3,6 +3,10 @@
     use VoteCerto\WebBundle\Document\Parliamentarian;
     use VoteCerto\WebBundle\Organizations\Interfaces\OrganizationInterface;
 
+    /**
+     * Class MockedOrganization
+     * @package VoteCerto\WebBundle\Organizations
+     */
     class MockedOrganization implements OrganizationInterface
     {
         public function __construct($file)

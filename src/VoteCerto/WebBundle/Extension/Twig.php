@@ -2,9 +2,15 @@
 
 namespace VoteCerto\WebBundle\Extension;
 
-
+/**
+ * Class Twig
+ * @package VoteCerto\WebBundle\Extension
+ */
 class Twig extends \Twig_Extension
 {
+    /**
+     * @var Symfony\Component\DependencyInjection\Container
+     */
     protected $container;
 
     /**
@@ -36,6 +42,9 @@ class Twig extends \Twig_Extension
         return "twig_extension";
     }
 
+    /**
+     * @return array
+     */
     public function getParliamentarians()
     {
         $dm = $this->container->get('doctrine_mongodb')->getManager();
@@ -45,13 +54,16 @@ class Twig extends \Twig_Extension
         foreach($parliamentarians as $parliamentarian){
             $array[] = [
                 'value' => $parliamentarian->getSlug(),
-                'label' => $parliamentarian->getName(). " " . $parliamentarian->getFiliation(),
+                'label' => $parliamentarian->getFantasyName(). " " . $parliamentarian->getFiliation(). " ",
             ];
         }
 
         return $array;
     }
 
+    /**
+     * @return bool
+     */
     public function isFacebookLogged()
     {
        return $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY');

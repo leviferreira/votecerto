@@ -1,6 +1,13 @@
 <?php
+/**
+ * Sluifier is used to slugify an politican name
+ */
 namespace VoteCerto\WebBundle\Services;
 
+/**
+ * Class Slugifier
+ * @package VoteCerto\WebBundle\Services
+ */
 class Slugifier
 {
     /**

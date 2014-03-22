@@ -1,0 +1,73 @@
+<?php
+
+namespace VoteCerto\WebBundle\Extension;
+
+/**
+ * Class Twig
+ * @package VoteCerto\WebBundle\Extension
+ */
+class Twig extends \Twig_Extension
+{
+    /**
+     * @var Symfony\Component\DependencyInjection\Container
+     */
+    protected $container;
+
+    /**
+     * Sets the container
+     * @param Symfony\Component\DependencyInjection\Container $container
+     */
+    public function __construct($container)
+    {
+        $this->container = $container;
+    }
+
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFunctions()
+    {
+        return array(
+            'get_parliamentarians' => new \Twig_Function_Method($this, 'getParliamentarians'),
+            'is_facebook_logged' =>  new \Twig_Function_Method($this, 'isFacebookLogged'),
+        );
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return "twig_extension";
+    }
+
+    /**
+     * @return array
+     */
+    public function getParliamentarians()
+    {
+        $dm = $this->container->get('doctrine_mongodb')->getManager();
+        $parliamentarians = $dm->createQueryBuilder('WebBundle:Parliamentarian')->getQuery()->execute();
+
+        $array = [];
+        foreach($parliamentarians as $parliamentarian){
+            $array[] = [
+                'value' => $parliamentarian->getSlug(),
+                'label' => $parliamentarian->getFantasyName(). " " . $parliamentarian->getFiliation(). " ",
+            ];
+        }
+
+        return $array;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFacebookLogged()
+    {
+       return $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY');
+    }
+
+}
+

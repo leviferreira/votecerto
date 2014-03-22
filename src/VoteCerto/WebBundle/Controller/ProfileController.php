@@ -1,6 +1,6 @@
 <?php
 /**
- * Default Controlle with home page actions
+ * Profile Controller with profile page actions
  */
 namespace VoteCerto\WebBundle\Controller;
 
@@ -24,6 +24,12 @@ class ProfileController extends Controller
         return $this->render("WebBundle:Profile:index.html.twig", ['profile' => $profile]);
     }
 
+    /**
+     * Vote in one parliamentarian
+     * @param $slug
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \OverflowException
+     */
     public function voteAction($slug)
     {
         if(!$this->getUser()){

@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * User provider for facebook
+ */
 namespace VoteCerto\WebBundle\Security\User\Provider;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Facebook;
@@ -9,6 +11,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use \BaseFacebook;
 use \FacebookApiException;
 
+/**
+ * Class FacebookProvider
+ * @package VoteCerto\WebBundle\Security\User\Provider
+ */
 class FacebookProvider implements UserProviderInterface
 {
     /**
@@ -19,6 +25,12 @@ class FacebookProvider implements UserProviderInterface
     protected $validator;
     protected $container;
 
+    /**
+     * @param BaseFacebook $facebook
+     * @param $userManager
+     * @param $validator
+     * @param $container
+     */
     public function __construct(BaseFacebook $facebook, $userManager, $validator, $container)
     {
         $this->facebook = $facebook;
@@ -32,21 +44,37 @@ class FacebookProvider implements UserProviderInterface
         $this->container = $container;
     }
 
+    /**
+     * @param string $class
+     * @return bool
+     */
     public function supportsClass($class)
     {
         return $this->userManager->supportsClass($class);
     }
 
+    /**
+     * @param $fbId
+     * @return mixed
+     */
     public function findUserByFbId($fbId)
     {
         return $this->userManager->findUserBy(array('facebookId' => $fbId));
     }
 
+    /**
+     * @param $username
+     * @return mixed
+     */
     public function findUserByUsername($username)
     {
         return $this->userManager->findUserBy(array('username' => $username));
     }
 
+    /**
+     * @return bool
+     * @throws \Symfony\Component\Security\Core\Exception\UsernameNotFoundException
+     */
     public function connectExistingAccount()
     {
 
@@ -129,6 +157,11 @@ class FacebookProvider implements UserProviderInterface
         return $user;
     }
 
+    /**
+     * @param UserInterface $user
+     * @return mixed|UserInterface
+     * @throws \Symfony\Component\Security\Core\Exception\UnsupportedUserException
+     */
     public function refreshUser(UserInterface $user)
     {
         if (!$this->supportsClass(get_class($user)) || !$user->getFacebookId()) {

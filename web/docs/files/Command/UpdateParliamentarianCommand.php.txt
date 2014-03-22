@@ -11,10 +11,10 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Class UpdateDeputiesCommand
+ * Class updateParliamentariansCommand
  * @package VoteCerto\WebBundle\Command
  */
-class UpdateDeputiesCommand extends Command
+class UpdateParliamentarianCommand extends Command
 {
     /**
      * Configure the command
@@ -22,7 +22,7 @@ class UpdateDeputiesCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('votecerto:update:deputies')
+            ->setName('votecerto:update:parliamentarian')
             ->setDescription('Updates Deputies at MongoDB')
         ;
     }
@@ -37,7 +37,7 @@ class UpdateDeputiesCommand extends Command
     {
        $container = $this->getApplication()->getKernel()->getContainer();
        $output->writeln('Updating...');
-       $container->get('deputies_webservice_manager')->updateDeputies();
+       $container->get('webservice_manager')->updateParliamentarians();
        $output->writeln('Updated Sucessfuly');
     }
 }
