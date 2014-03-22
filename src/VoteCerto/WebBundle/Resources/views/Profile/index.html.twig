@@ -36,30 +36,37 @@
             </div>
 
             <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-12">
-                        <form id="voteForm" action="{{ path('vote', {'slug': profile.slug}) }}" method="post">
-                            <input type="hidden" id="optionVote" name="option" />
-                            <textarea name="comment" class="form-control" rows="3" id="commentFields" placeholder="Deixe o seu comentário sobre este político."></textarea>
-                        </form>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Vote e comente!</h3>
                     </div>
+
+                {% if is_facebook_logged() %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form id="voteForm" action="{{ path('vote', {'slug': profile.slug}) }}" method="post">
+                                <input type="hidden" id="optionVote" name="option" />
+                                <textarea name="comment" class="form-control" rows="3" id="commentFields" placeholder="Deixe o seu comentário sobre este político."></textarea>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-success col-md-12" id="btnVoteLike">
+                                <span class="glyphicon glyphicon-thumbs-up btnVote"></span>
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-danger col-md-12" id="btnVoteDislike">
+                                <span class="glyphicon glyphicon-thumbs-down btnVote"></span>
+                            </button>
+                        </div>
+
+
+                    </div>
+                {% endif %}
                 </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <button type="button" class="btn btn-success col-md-12" id="btnVoteLike">
-                            <span class="glyphicon glyphicon-thumbs-up btnVote"></span>
-                        </button>
-                    </div>
-                    <div class="col-md-6">
-                        <button type="button" class="btn btn-danger col-md-12" id="btnVoteDislike">
-                            <span class="glyphicon glyphicon-thumbs-down btnVote"></span>
-                        </button>
-                    </div>
-
-
-                </div>
-
             </div>
 
         </div>

@@ -79,3 +79,14 @@ doctrine_mongodb:
         default:
             mappings:
                 WebBundle: yml
+fos_user:
+    db_driver: mongodb
+    firewall_name: facebook
+    user_class: VoteCerto\WebBundle\Document\User
+
+fos_facebook:
+    alias:  vote-certo
+    app_id: 690980390943600
+    secret: caaebe0591906bc72ad45e1e7002ef59
+    cookie: true
+    permissions: [email, user_birthday, user_location]

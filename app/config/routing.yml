@@ -2,3 +2,6 @@ web:
     resource: "@WebBundle/Resources/config/routing.yml"
     prefix:   /
 
+fos_facebook_channel:
+    resource: "@FOSFacebookBundle/Resources/config/routing.xml"
+

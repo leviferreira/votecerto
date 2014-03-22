@@ -19,3 +19,9 @@ parameters:
             name: 'CamaraFederal'
             url: 'http://www.camara.gov.br/SitCamaraWS/Deputados.asmx'
             class: 'VoteCerto\WebBundle\Organizations\CamaraFederal'
+    fos_facebook:
+        alias:  vote-certo
+        app_id: 690980390943600
+        secret: caaebe0591906bc72ad45e1e7002ef59
+        cookie: true
+        permissions: [email, user_birthday, user_location]

@@ -1,0 +1,6 @@
+# src/VoteCerto/WebBundle/Resources/config/doctrine/User.mongodb.yml
+VoteCerto\WebBundle\Document\User:
+    type:  document
+    fields:
+        id:
+            id: true

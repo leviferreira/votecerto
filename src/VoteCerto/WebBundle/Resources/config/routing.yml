@@ -9,3 +9,18 @@ webbundle_profile:
 vote:
     pattern: /parlamentar/{slug}/vote
     defaults: { _controller: WebBundle:Profile:vote }
+
+_security_check_facebook:
+    pattern:   /facebook/login_check
+    defaults:  { _controller: WebBundle:User:loginFb }
+
+_security_facebook_logout:
+  pattern:  /facebook/logout
+
+fos_user_security_login:
+    defaults: { _controller: WebBundle:Security:login }
+    pattern: /user/login
+
+user_couple_fb_with_account:
+    pattern: /user/couple/facebook
+    defaults: { _controller: WebBundle:User:connectFacebookWithAccount }

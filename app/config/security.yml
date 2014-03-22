@@ -7,32 +7,38 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
+        chain_provider:
+           chain:
+               providers: [fos_userbundle, my_fos_facebook_provider]
+
         in_memory:
             memory:
                 users:
                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+        my_fos_facebook_provider:
+            id: my.facebook.user
+
+        fos_userbundle:
+            id: fos_user.user_provider.username
 
     firewalls:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        login:
-            pattern:  ^/demo/secured/login$
-            security: false
+        secured:
+            fos_facebook:
+                provider: my_fos_facebook_provider
+                redirect_to_facebook_login: false
+                login_path: /user/login
+                check_path: /facebook/login_check
 
-        secured_area:
-            pattern:    ^/demo/secured/
-            form_login:
-                check_path: _security_check
-                login_path: _demo_login
+
             logout:
-                path:   _demo_logout
-                target: _demo
-            #anonymous: ~
-            #http_basic:
-            #    realm: "Secured Demo Area"
+                path: /facebook/logout
+            anonymous: ~
+
 
     access_control:
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+         - { path: /.*, roles: [ROLE_USER, IS_AUTHENTICATED_ANONYMOUSLY] }
