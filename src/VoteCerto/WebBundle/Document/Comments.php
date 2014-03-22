@@ -136,4 +136,58 @@ class Comments {
     {
         return $this->comment;
     }
+    /**
+     * @var string $facebookId
+     */
+    protected $facebookId;
+
+
+    /**
+     * Set facebookId
+     *
+     * @param string $facebookId
+     * @return self
+     */
+    public function setFacebookId($facebookId)
+    {
+        $this->facebookId = $facebookId;
+        return $this;
+    }
+
+    /**
+     * Get facebookId
+     *
+     * @return string $facebookId
+     */
+    public function getFacebookId()
+    {
+        return $this->facebookId;
+    }
+    /**
+     * @var string $facebookName
+     */
+    protected $facebookName;
+
+
+    /**
+     * Set facebookName
+     *
+     * @param string $facebookName
+     * @return self
+     */
+    public function setFacebookName($facebookName)
+    {
+        $this->facebookName = $facebookName;
+        return $this;
+    }
+
+    /**
+     * Get facebookName
+     *
+     * @return string $facebookName
+     */
+    public function getFacebookName()
+    {
+        return $this->facebookName;
+    }
 }

@@ -7,6 +7,10 @@ VoteCerto\WebBundle\Document\Comments:
             type: boolean
         comment:
             type: string
+        facebookId:
+            type: string
+        facebookName:
+            type: string
 
     type: document
     referenceOne:

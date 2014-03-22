@@ -27,13 +27,12 @@ security:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        secured:
+        main:
             fos_facebook:
                 provider: my_fos_facebook_provider
                 redirect_to_facebook_login: false
                 login_path: /user/login
                 check_path: /facebook/login_check
-
 
             logout:
                 path: /facebook/logout

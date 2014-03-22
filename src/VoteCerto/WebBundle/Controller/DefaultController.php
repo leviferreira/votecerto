@@ -29,6 +29,7 @@ class DefaultController extends Controller
             'votes', 'desc'
         )->limit(5)->getQuery()->execute();
 
+
         return $this->render("WebBundle:Default:index.html.twig", [
             'positives' => $positives,
             'negatives' => $negatives,

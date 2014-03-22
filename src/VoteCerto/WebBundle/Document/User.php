@@ -2,7 +2,7 @@
 
 namespace VoteCerto\WebBundle\Document;
 
-use FOS\UserBundle\Entity\User as FOSBaseUser;
+use FOS\UserBundle\Model\User as FOSBaseUser;
 
 class User extends FOSBaseUser
 {
@@ -115,5 +115,15 @@ class User extends FOSBaseUser
         if (isset($fbdata['email'])) {
             $this->setEmail($fbdata['email']);
         }
+    }
+
+    /**
+     * Get id
+     *
+     * @return id $id
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

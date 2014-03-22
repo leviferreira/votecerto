@@ -35,9 +35,13 @@
                 $sum = 1;
             }
 
+            $user = $this->container->get('security.context')->getToken()->getUser();
 
             $vote->setParliamentarian($profile);
             $vote->setComment($request['comment']);
+
+            $vote->setFacebookId($user->getUsername());
+            $vote->setFacebookName($this->getFacebookName($user->getUsername()));
 
             $dm = $this->container->get('doctrine_mongodb')->getManager();
 
@@ -50,5 +54,17 @@
 
             return true;
         }
+
+        public function getFacebookName($fbId)
+        {
+            if(!$fbId){
+                return "Anônimo";
+            }
+            $fbUser = $this->container->get('my.facebook.user')->loadUserByUsername($fbId);
+
+            return $fbUser->getFirstName()." ".$fbUser->getLastName();
+        }
     }
+
+
 ?>

@@ -26,6 +26,10 @@ class ProfileController extends Controller
 
     public function voteAction($slug)
     {
+        if(!$this->getUser()){
+            throw new \OverflowException("You need to be logged to vote");
+        }
+
         $profile = $this->container->get('parliamentarian_manager')->findBySlug($slug);
 
         $vote = $this->container->get('parliamentarian_manager')->vote($profile);
@@ -36,9 +40,6 @@ class ProfileController extends Controller
                 'Voto recebido com sucesso!'
             );
         }
-
-
-
 
         return $this->redirect(
             $this->generateUrl('webbundle_profile', ['slug' => $profile->getSlug()])

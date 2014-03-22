@@ -20,6 +20,8 @@
                         <br />
                             <strong>Partido:</strong> {{ profile.filiation }}
                         <br />
+                            <strong>Estado:</strong> {{ profile.state }}
+                        <br />
                             <strong>Telefone:</strong> +55 (61) {{ profile.phone }}
                         <br />
                             <strong>Email:</strong> <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
@@ -105,8 +107,9 @@
                     </div-->
                     {% for comment in profile.getComments() %}
                     <div class="panel-body">
-                        <img class="media-object" src="{{ asset('bundles/web/images/user-icon.png') }}" alt="...">
+                        <img class="media-object" src="https://graph.facebook.com/{{ comment.facebookId }}/picture" alt="...">
                         <p>
+                           <strong>{%  if not comment.facebookName %} Anônimo {% else %} {{ comment.facebookName }} {% endif %}</strong> <br />
                            {{ comment.comment }}
                         </p>
                     </div>

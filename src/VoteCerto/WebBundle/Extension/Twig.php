@@ -24,7 +24,7 @@ class Twig extends \Twig_Extension
     {
         return array(
             'get_parliamentarians' => new \Twig_Function_Method($this, 'getParliamentarians'),
-            'is_facebook_logged' =>  new \Twig_Function_Method($this, 'isFacebookLogged')
+            'is_facebook_logged' =>  new \Twig_Function_Method($this, 'isFacebookLogged'),
         );
     }
 
@@ -56,4 +56,5 @@ class Twig extends \Twig_Extension
     {
        return $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY');
     }
+
 }
