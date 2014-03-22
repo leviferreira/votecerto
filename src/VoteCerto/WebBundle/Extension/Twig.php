@@ -44,8 +44,8 @@ class Twig extends \Twig_Extension
         $array = [];
         foreach($parliamentarians as $parliamentarian){
             $array[] = [
-                'slug' => $parliamentarian->getSlug(),
-                'name' => $parliamentarian->getName()
+                'value' => $parliamentarian->getSlug(),
+                'label' => $parliamentarian->getName(). " " . $parliamentarian->getFiliation(),
             ];
         }
 
